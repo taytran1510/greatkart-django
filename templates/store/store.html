@@ -2,8 +2,16 @@
 {% load static %}
 
 {% block content %}
+<style>
+	.img-fluid rounded {
+		width: 5000px;
+	}
+</style>
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
+	<div class="intro-banner-wrap">
+		<img src="{% static 'images/banners/2.jpg' %}" class="img-fluid rounded">
+	</div>
 <div class="container">
 	{% if 'search' in request.path %}
 		<h2 class="title-page">Search Result</h2>
@@ -111,7 +119,7 @@
 					</select>
 				</div>
 				</div> <!-- form-row.// -->
-				<button class="btn btn-block btn-primary">Apply</button>
+				<button class="btn btn-block btn-primary" style="background-color: #FF8C00;">Apply</button>
 			</div><!-- card-body.// -->
 		</div>
 	</article> <!-- filter-group .// -->
@@ -147,7 +155,7 @@
 						<del class="price-old">$1980</del>
 					</div> <!-- price-wrap.// -->
 				</div>
-				<a href="{{ product.get_url }}" class="btn btn-block btn-primary">View Details </a>
+				<a href="{{ product.get_url }}" class="btn btn-block btn-primary" style="background-color: #FF8C00;">View Details </a>
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->

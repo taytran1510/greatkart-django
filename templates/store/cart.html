@@ -13,7 +13,7 @@
   <h2 class="text-center">Your Shopping Cart Is Empty </h2>
   <br>
   <div class="text-center">
-    <a href="{% url 'store' %}" class="btn btn-primary">Continue Shopping</a>
+    <a href="{% url 'store' %}" class="btn btn-primary" style="background-color: #FF8C00;">Continue Shopping</a>
 
   </div>
 {% else %}
@@ -105,8 +105,8 @@
 			<p class="text-center mb-3">
 				<img src="{% static '/images/misc/payments.png' %}" height="26">
 			</p>
-			<a href="./place-order.html" class="btn btn-primary btn-block"> Checkout </a>
-			<a href="{% url 'store' %}" class="btn btn-light btn-block">Continue Shopping</a>
+			<a href="./place-order.html" class="btn btn-primary btn-block" style="background-color: #FF8C00;"> Checkout </a>
+			<a href="{% url 'store' %}" class="btn btn-light btn-block" style="background-color: #FF8C00;">Continue Shopping</a>
 		</div> <!-- card-body.// -->
 		</div> <!-- card.// -->
 
