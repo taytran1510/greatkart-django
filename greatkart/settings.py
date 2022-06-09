@@ -144,8 +144,8 @@ MESSAGE_TAGS = {
 # SMTP configuration
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = '18133054@student.hcmute.edu.vn'
-EMAIL_HOST_PASSWORD = 'thuantrannhu12'
+EMAIL_HOST_USER = 'xxx@student.hcmute.edu.vn'
+EMAIL_HOST_PASSWORD = 'thuantrannhuxx'
 EMAIL_USE_TLS = True
 # EMAIL_TIMEOUT = 3
 
