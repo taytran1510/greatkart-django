@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product, ReviewRating, ProductGallery
+from .models import Product, ReviewRating, ProductGallery, Variation
 from category.models import Category
 from carts.models import CartItem
 from django.db.models import Q
+from decimal import Decimal as D
 
 from carts.views import _cart_id
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
@@ -74,6 +75,40 @@ def search(request):
         if keyword:
             products = Product.objects.order_by('-created_date').filter(Q(description__icontains=keyword) | Q(product_name__icontains=keyword))
             product_count = products.count()
+    context ={
+        'products': products,
+        'product_count': product_count,
+    }
+    return render(request, 'store/store.html', context)
+
+def searchs(request):
+    if 'keyword1' in request.GET and 'keyword2' in request.GET:
+        if 'keyword' in request.GET:
+            keyword1 = request.GET['keyword1']
+            keyword2 = request.GET['keyword2']
+            keyword = request.GET['keyword']
+            print("________________running keyword search__________________")
+            if keyword1 and keyword2 and keyword:
+                # vari = Variation.objects.select_related().filter(Q(variation_value = keyword))
+                # products = Product.objects.order_by('-created_date').filter(Q(price__range=(keyword1,keyword2)))
+                # vari = Variation.objects.select_related().filter(Q(variation_value = keyword) & Q(product__id = products))
+                # print(vari)
+                try:
+                    id = Variation.objects.filter(Q(variation_value = keyword) & Q(product__price__range=(keyword1,keyword2))).values_list('product__id', flat=True).all()
+                    print(id)
+                except:
+                    id = None
+                for i in id:
+                    print(i)
+                print('________________id variation___________________')
+                products = Product.objects.order_by('-created_date').filter(Q(id__in = id))
+                product_count = products.count()
+        else:
+            keyword1 = request.GET['keyword1']
+            keyword2 = request.GET['keyword2']
+            if keyword1 and keyword2:
+                products = Product.objects.order_by('-created_date').filter(Q(price__range=(keyword1,keyword2)))
+                product_count = products.count()
     context ={
         'products': products,
         'product_count': product_count,

@@ -49,6 +49,7 @@
 
 			</div> <!-- card-body.// -->
 		</div>
+<form action="{% url 'searchs' %}" class="search" method='GET'>
 	</article> <!-- filter-group  .// -->
 	<article class="filter-group">
 		<header class="card-header">
@@ -60,24 +61,20 @@
 		<div class="filter-content collapse show" id="collapse_4" style="">
 			<div class="card-body">
 			  <label class="checkbox-btn">
-			    <input type="checkbox">
-			    <span class="btn btn-light"> XS </span>
+			    <input type="checkbox" name="keyword" value="Small">
+			    <span class="btn btn-light"> Small </span>
 			  </label>
 
 			  <label class="checkbox-btn">
-			    <input type="checkbox">
-			    <span class="btn btn-light"> SM </span>
+			    <input type="checkbox" name="keyword" value="Medium">
+			    <span class="btn btn-light"> Medium </span>
 			  </label>
 
 			  <label class="checkbox-btn">
-			    <input type="checkbox">
-			    <span class="btn btn-light"> LG </span>
+			    <input type="checkbox" name="keyword" value="Large">
+			    <span class="btn btn-light"> Large </span>
 			  </label>
 
-			  <label class="checkbox-btn">
-			    <input type="checkbox">
-			    <span class="btn btn-light"> XXL </span>
-			  </label>
 		</div><!-- card-body.// -->
 		</div>
 	</article> <!-- filter-group .// -->
@@ -96,7 +93,7 @@
 				<div class="form-group col-md-6">
 				  <label>Min</label>
 				  <!-- <input class="form-control" placeholder="$0" type="number"> -->
-				  	<select class="mr-2 form-control">
+				  	<select class="mr-2 form-control" name="keyword1">
 						<option value="0">$0</option>
 						<option value="50">$50</option>
 						<option value="100">$100</option>
@@ -108,7 +105,7 @@
 				</div>
 				<div class="form-group text-right col-md-6">
 				  <label>Max</label>
-				  	<select class="mr-2 form-control">
+				  	<select class="mr-2 form-control" name="keyword2">
 						<option value="50">$50</option>
 						<option value="100">$100</option>
 						<option value="150">$150</option>
@@ -119,11 +116,12 @@
 					</select>
 				</div>
 				</div> <!-- form-row.// -->
-				<button class="btn btn-block btn-primary" style="background-color: #FF8C00;">Apply</button>
+				<button class="btn btn-block btn-primary" type="submit" style="background-color: #FF8C00;">Apply</button>
 			</div><!-- card-body.// -->
 		</div>
-	</article> <!-- filter-group .// -->
 
+	</article> <!-- filter-group .// -->
+</form> <!-- search-wrap .end// -->
 </div> <!-- card.// -->
 
 	</aside> <!-- col.// -->
